@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS student_subject;
+
+CREATE TABLE student( 
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+full_name TEXT UNIQUE NOT NULL,
+password TEXT NOT NULL,
+email TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE student_subject (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  student_id INTEGER NOT NULL,
+  subjects TEXT NOT NULL,
+  mark INTEGER NOT NULL,
+  grade TEXT NOT NULL,
+  FOREIGN KEY (student_id) REFERENCES student (id)
+);
